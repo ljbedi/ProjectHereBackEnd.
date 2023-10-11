@@ -13,11 +13,15 @@ public class User {
     @Column(name="username")
     private String username;
 
+    @Column(name="password")
+    private String password;
+
     @Column(name="email")
     private String email;
 
     @Column(name="location")
     private String location;
+
 //    @Column(name="reviews")
 //    private List<Review> reviews;
 //
@@ -28,8 +32,9 @@ public class User {
 
     }
 
-    public User(String username, String email, String location) {
+    public User(String username, String password, String email, String location) {
         this.username = username;
+        this.password = password;
         this.email = email;
         this.location = location;
 //        this.checked_in = new ArrayList<>();
@@ -50,6 +55,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -75,7 +88,7 @@ public class User {
 //    public void setReviews(List<Review> reviews) {
 //        this.reviews = reviews;
 //    }
-//
+  
 //    public List<CheckIn> getChecked_in() {
 //        return checked_in;
 //    }
