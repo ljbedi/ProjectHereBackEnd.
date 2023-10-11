@@ -18,15 +18,11 @@ public class User {
 
     @Column(name="location")
     private String location;
+    @Column(name="reviews")
+    private List<Review> reviews;
 
-//    @Column(name="favourites")
-//    private List<Favourite> favourites;
-
-//    @Column(name="reviews")
-//    private List<Review> reviews;
-
-//    @Column(name="checked_in")
-//    private Boolean checked_in;
+    @Column(name="checked_in")
+    private List<CheckIn> checked_in;
 
     public User() {
 
@@ -36,9 +32,8 @@ public class User {
         this.username = username;
         this.email = email;
         this.location = location;
-//        this.checked_in = checked_in;
-//        this.favourites = new ArrayList<>();
-//        this.reviews = new ArrayList<>();
+        this.checked_in = new ArrayList<>();
+        this.reviews = new ArrayList<>();
     }
 
     public Long getId() {
@@ -73,27 +68,19 @@ public class User {
         this.location = location;
     }
 
-//    public List<Favourite> getFavourites() {
-//        return favourites;
-//    }
-//
-//    public void setFavourites(List<Favourite> favourites) {
-//        this.favourites = favourites;
-//    }
-//
-//    public List<Review> getReviews() {
-//        return reviews;
-//    }
-//
-//    public void setReviews(List<Review> reviews) {
-//        this.reviews = reviews;
-//    }
+    public List<Review> getReviews() {
+        return reviews;
+    }
 
-//    public Boolean getChecked_in() {
-//        return checked_in;
-//    }
-//
-//    public void setChecked_in(Boolean checked_in) {
-//        this.checked_in = checked_in;
-//    }
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public List<CheckIn> getChecked_in() {
+        return checked_in;
+    }
+
+    public void setChecked_in(List<CheckIn> checked_in) {
+        this.checked_in = checked_in;
+    }
 }
