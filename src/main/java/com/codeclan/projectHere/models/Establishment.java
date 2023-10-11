@@ -1,4 +1,7 @@
 package com.codeclan.projectHere.models;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,26 +17,28 @@ public class Establishment {
     @Column(name="name")
     private String name;
 
-    @Column(name="categories")
-    private List<Catergory> categories;
-
-    @Column(name="reviews")
-    private List<Review> reviews;
-
     @Column(name="description")
     private String description;
 
     @Column(name="longitude")
-    private Float longitude;
+    private Double longitude;
 
     @Column(name="latitude")
-    private Float latitude;
+    private Double latitude;
+
+    @OneToMany(mappedBy = "establishment", fetch=FetchType.LAZY)
+    @JsonIgnoreProperties({"establishment"})
+    private List<Category> categories;
+
+    @OneToMany(mappedBy = "establishment", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"establishment"})
+    private List<Review> reviews;
 
     public Establishment(){
 
     }
 
-    public Establishment(String name, String description, Float longitude, Float latitude) {
+    public Establishment(String name, String description, Double longitude, Double latitude) {
         this.name = name;
         this.description = description;
         this.longitude = longitude;
@@ -58,11 +63,11 @@ public class Establishment {
         this.name = name;
     }
 
-    public List<Catergory> getCategories() {
+    public List<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(List<Catergory> categories) {
+    public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
 
@@ -82,19 +87,19 @@ public class Establishment {
         this.description = description;
     }
 
-    public Float getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
-    public Float getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Float latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 }
