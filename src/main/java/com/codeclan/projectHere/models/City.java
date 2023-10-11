@@ -36,14 +36,77 @@ public class City {
 
     }
 
-    public City(Long id, String name, String description, String history, String wellbeing, String toDo, Float latitude, Float longitude) {
-        this.id = id;
+    public City(String name, String description, String history, String wellbeing, String toDo, Float latitude, Float longitude) {
         this.name = name;
         this.description = description;
         this.history = history;
         this.wellbeing = wellbeing;
         this.toDo = toDo;
         this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getHistory() {
+        return history;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
+    }
+
+    public String getWellbeing() {
+        return wellbeing;
+    }
+
+    public void setWellbeing(String wellbeing) {
+        this.wellbeing = wellbeing;
+    }
+
+    public String getToDo() {
+        return toDo;
+    }
+
+    public void setToDo(String toDo) {
+        this.toDo = toDo;
+    }
+
+    public Float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Float latitude) {
+        this.latitude = latitude;
+    }
+
+    public Float getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Float longitude) {
         this.longitude = longitude;
     }
 }
