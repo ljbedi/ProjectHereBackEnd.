@@ -27,16 +27,16 @@ public class City {
     private String toDo;
 
     @Column(name="latitude")
-    private Float latitude;
+    private Double latitude;
 
     @Column(name="longitude")
-    private Float longitude;
+    private Double longitude;
 
     public City() {
 
     }
 
-    public City(String name, String description, String history, String wellbeing, String toDo, Float latitude, Float longitude) {
+    public City(String name, String description, String history, String wellbeing, String toDo, Double latitude, Double longitude) {
         this.name = name;
         this.description = description;
         this.history = history;
@@ -94,19 +94,19 @@ public class City {
         this.toDo = toDo;
     }
 
-    public Float getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Float latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public Float getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 }

@@ -1,6 +1,9 @@
 package com.codeclan.projectHere.components;
+
 import com.codeclan.projectHere.models.Establishment;
+import com.codeclan.projectHere.models.City;
 import com.codeclan.projectHere.models.User;
+import com.codeclan.projectHere.repositories.CityRepository;
 import com.codeclan.projectHere.repositories.EstablishmentRepository;
 import com.codeclan.projectHere.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     EstablishmentRepository establishmentRepository;
+  
+    @Autowired
+    CityRepository cityRepository;
 
     public DataLoader() {
 
@@ -29,8 +35,12 @@ public class DataLoader implements ApplicationRunner {
 
     User user2 = new User("Holly", "password1", "holly@gmail.com", "Edinburgh");
     userRepository.save(user2);
-
+      
     Establishment establishment1 = new Establishment("CC Blooms", "Fun place for dancing", 55.957, -3.1877);
     establishmentRepository.save(establishment1);
+    
+    City city1 = new City("Edinburgh", "Capital of Scotland", "XXXXX", "XXXXX", "XXXXXXX", 55.9533, -3.1883);
+    cityRepository.save(city1);
+
     };
 };
