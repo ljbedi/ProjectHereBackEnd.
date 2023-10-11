@@ -18,11 +18,11 @@ public class User {
 
     @Column(name="location")
     private String location;
-    @Column(name="reviews")
-    private List<Review> reviews;
-
-    @Column(name="checked_in")
-    private List<CheckIn> checked_in;
+//    @Column(name="reviews")
+//    private List<Review> reviews;
+//
+//    @Column(name="checked_in")
+//    private List<CheckIn> checked_in;
 
     public User() {
 
@@ -32,8 +32,8 @@ public class User {
         this.username = username;
         this.email = email;
         this.location = location;
-        this.checked_in = new ArrayList<>();
-        this.reviews = new ArrayList<>();
+//        this.checked_in = new ArrayList<>();
+//        this.reviews = new ArrayList<>();
     }
 
     public Long getId() {
@@ -68,19 +68,19 @@ public class User {
         this.location = location;
     }
 
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
-
-    public List<CheckIn> getChecked_in() {
-        return checked_in;
-    }
-
-    public void setChecked_in(List<CheckIn> checked_in) {
-        this.checked_in = checked_in;
-    }
+//    public List<Review> getReviews() {
+//        return reviews;
+//    }
+//
+//    public void setReviews(List<Review> reviews) {
+//        this.reviews = reviews;
+//    }
+//
+//    public List<CheckIn> getChecked_in() {
+//        return checked_in;
+//    }
+//
+//    public void setChecked_in(List<CheckIn> checked_in) {
+//        this.checked_in = checked_in;
+//    }
 }
