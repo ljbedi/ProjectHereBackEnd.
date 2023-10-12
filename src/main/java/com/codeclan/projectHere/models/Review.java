@@ -21,15 +21,20 @@ public class Review {
     @JsonIgnoreProperties({"reviews"})
     @JoinColumn(name="establishment_id", nullable = false)
     private Establishment establishment;
+    @ManyToOne
+    @JsonIgnoreProperties({"reviews"})
+    @JoinColumn(name="user_id", nullable = false)
+    private User user;
 
     public Review(){
 
     }
 
-    public Review(String post, int rating, Establishment establishment) {
+    public Review(String post, int rating, Establishment establishment, User user) {
         this.post = post;
         this.rating = rating;
         this.establishment = establishment;
+        this.user = user;
     }
 
     public Long getId() {
@@ -62,5 +67,13 @@ public class Review {
 
     public void setEstablishment(Establishment establishment) {
         this.establishment = establishment;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
