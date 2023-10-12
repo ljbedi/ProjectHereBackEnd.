@@ -1,11 +1,7 @@
 package com.codeclan.projectHere.components;
 
-import com.codeclan.projectHere.models.Establishment;
-import com.codeclan.projectHere.models.City;
-import com.codeclan.projectHere.models.User;
-import com.codeclan.projectHere.repositories.CityRepository;
-import com.codeclan.projectHere.repositories.EstablishmentRepository;
-import com.codeclan.projectHere.repositories.UserRepository;
+import com.codeclan.projectHere.models.*;
+import com.codeclan.projectHere.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -25,6 +21,17 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     CityRepository cityRepository;
 
+    @Autowired
+    ReviewRepository reviewRepository;
+
+    @Autowired
+    CheckedInRepository checkedInRepository;
+
+    @Autowired
+    CategoryRepository categoryRepository;
+
+
+
     public DataLoader() {
 
     }
@@ -41,6 +48,15 @@ public class DataLoader implements ApplicationRunner {
     
     City city1 = new City("Edinburgh", "Capital of Scotland", "XXXXX", "XXXXX", "XXXXXXX", 55.9533, -3.1883);
     cityRepository.save(city1);
+
+    Review review1 = new Review ("Great music and dancing", 5, establishment1, user2);
+    reviewRepository.save(review1);
+
+    Category category1 = new Category("Club", establishment1);
+    categoryRepository.save(category1);
+
+    CheckedIn checkedIn1 = new CheckedIn(4, user2, establishment1);
+    checkedInRepository.save(checkedIn1);
 
     };
 };
