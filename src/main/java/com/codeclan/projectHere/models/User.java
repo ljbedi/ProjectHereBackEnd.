@@ -1,7 +1,10 @@
 package com.codeclan.projectHere.models;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="users")
@@ -10,23 +13,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="username")
+    @Column(name = "username")
     private String username;
 
-    @Column(name="password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name="location")
+    @Column(name = "location")
     private String location;
 
 //    @Column(name="reviews")
 //    private List<Review> reviews;
-//
-//    @Column(name="checked_in")
-//    private List<CheckIn> checked_in;
+
+    @ManyToMany
+    @JoinTable(
+            name = "checked_in",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "establishment_id")
+    )
+    Set<Establishment> establishments;
 
     public User() {
 
@@ -88,12 +96,11 @@ public class User {
 //    public void setReviews(List<Review> reviews) {
 //        this.reviews = reviews;
 //    }
-  
-//    public List<CheckIn> getChecked_in() {
+
+//    public List<CheckedIn> getChecked_in() {
 //        return checked_in;
 //    }
 //
-//    public void setChecked_in(List<CheckIn> checked_in) {
+//    public void setChecked_in(List<CheckedIn> checked_in) {
 //        this.checked_in = checked_in;
-//    }
 }
