@@ -105,4 +105,8 @@ public class User {
     public void setChecked_ins(Set<Establishment> checked_ins) {
         this.checked_ins = checked_ins;
     }
+
+    public void addCheckIn(Establishment establishment) {
+        this.checked_ins.add(establishment);
+    }
 }
