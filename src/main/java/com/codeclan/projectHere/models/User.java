@@ -27,14 +27,14 @@ public class User {
 
 //    @Column(name="reviews")
 //    private List<Review> reviews;
-
+    @JsonIgnoreProperties("checked_in_users")
     @ManyToMany
     @JoinTable(
             name = "checked_in",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "establishment_id")
     )
-    Set<Establishment> establishments;
+    Set<Establishment> checked_ins;
 
     public User() {
 
@@ -45,7 +45,7 @@ public class User {
         this.password = password;
         this.email = email;
         this.location = location;
-//        this.checked_in = new ArrayList<>();
+//        this.checked_ins = new ArrayList<>();
 //        this.reviews = new ArrayList<>();
     }
 
@@ -97,10 +97,12 @@ public class User {
 //        this.reviews = reviews;
 //    }
 
-//    public List<CheckedIn> getChecked_in() {
-//        return checked_in;
-//    }
-//
-//    public void setChecked_in(List<CheckedIn> checked_in) {
-//        this.checked_in = checked_in;
+
+    public Set<Establishment> getChecked_ins() {
+        return checked_ins;
+    }
+
+    public void setChecked_ins(Set<Establishment> checked_ins) {
+        this.checked_ins = checked_ins;
+    }
 }

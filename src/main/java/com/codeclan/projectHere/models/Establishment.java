@@ -30,8 +30,10 @@ public class Establishment {
     @Column(name="latitude")
     private Double latitude;
 
-    @ManyToMany(mappedBy = "establishments")
-    Set<User> users;
+    @JsonIgnoreProperties("checked_ins")
+
+    @ManyToMany(mappedBy = "checked_ins")
+    Set<User> checked_in_users;
 
     public Establishment(){
 
@@ -42,6 +44,7 @@ public class Establishment {
         this.description = description;
         this.longitude = longitude;
         this.latitude = latitude;
+//        this.checked_in_users = new ArrayList<>();
 //        this.categories = new ArrayList<>();
 //        this.reviews = new ArrayList<>();
     }
@@ -100,5 +103,13 @@ public class Establishment {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public Set<User> getChecked_in_users() {
+        return checked_in_users;
+    }
+
+    public void setChecked_in_users(Set<User> checked_in_users) {
+        this.checked_in_users = checked_in_users;
     }
 }
