@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Profile("!test") //Run every time EXCEPT Tests
-@Component
+//@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -24,8 +24,8 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     ReviewRepository reviewRepository;
 
-    @Autowired
-    CheckedInRepository checkedInRepository;
+//    @Autowired
+//    CheckedInRepository checkedInRepository;
 
     @Autowired
     CategoryRepository categoryRepository;
@@ -55,8 +55,8 @@ public class DataLoader implements ApplicationRunner {
     Category category1 = new Category("Club", establishment1);
     categoryRepository.save(category1);
 
-    CheckedIn checkedIn1 = new CheckedIn(4, user2, establishment1);
-    checkedInRepository.save(checkedIn1);
+//    CheckedIn checkedIn1 = new CheckedIn(4, user2, establishment1);
+//    checkedInRepository.save(checkedIn1);
 
     };
 };

@@ -5,6 +5,8 @@ import com.codeclan.projectHere.models.User;
 import com.codeclan.projectHere.repositories.CityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,5 +20,10 @@ public class CityController {
     @GetMapping(value = "/cities")
     public List<City> getAllCities() {
         return cityRepository.findAll();
+    }
+
+    @PostMapping(value = "/cities")
+    public City createNewCities(@RequestBody City city) {
+        return cityRepository.save(city);
     }
 }

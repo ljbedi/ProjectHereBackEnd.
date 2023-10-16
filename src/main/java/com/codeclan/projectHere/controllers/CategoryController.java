@@ -2,10 +2,13 @@ package com.codeclan.projectHere.controllers;
 
 import com.codeclan.projectHere.models.Category;
 import com.codeclan.projectHere.models.Review;
+import com.codeclan.projectHere.models.User;
 import com.codeclan.projectHere.repositories.CategoryRepository;
 import com.codeclan.projectHere.repositories.EstablishmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,6 +29,10 @@ public class CategoryController {
         return categoryRepository.findAll();
     }
 
+    @PostMapping(value = "/categories")
+    public Category createNewCategory(@RequestBody Category category) {
+        return categoryRepository.save(category);
 
+    }
 
 }

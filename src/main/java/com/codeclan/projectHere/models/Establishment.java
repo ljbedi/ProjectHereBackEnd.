@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 @Entity
 @Table(name="establishments")
@@ -20,19 +21,19 @@ public class Establishment {
     @Column(name="description")
     private String description;
 
+//    @Column(name="categories")
+//    private List<Category> categories;
+
     @Column(name="longitude")
     private Double longitude;
 
     @Column(name="latitude")
     private Double latitude;
 
-    @OneToMany(mappedBy = "establishment", fetch=FetchType.LAZY)
-    @JsonIgnoreProperties({"establishment"})
-    private List<Category> categories;
+    @JsonIgnoreProperties("checked_ins")
 
-    @OneToMany(mappedBy = "establishment", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"establishment"})
-    private List<Review> reviews;
+    @ManyToMany(mappedBy = "checked_ins")
+    Set<User> checked_in_users;
 
     public Establishment(){
 
@@ -43,8 +44,9 @@ public class Establishment {
         this.description = description;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.categories = new ArrayList<>();
-        this.reviews = new ArrayList<>();
+//        this.checked_in_users = new ArrayList<>();
+//        this.categories = new ArrayList<>();
+//        this.reviews = new ArrayList<>();
     }
 
     public Long getId() {
@@ -63,21 +65,21 @@ public class Establishment {
         this.name = name;
     }
 
-    public List<Category> getCategories() {
-        return categories;
-    }
+//    public List<Category> getCategories() {
+//        return categories;
+//    }
+//
+//    public void setCategories(List<Category> categories) {
+//        this.categories = categories;
+//    }
 
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
+//    public List<Review> getReviews() {
+//        return reviews;
+//    }
+//
+//    public void setReviews(List<Review> reviews) {
+//        this.reviews = reviews;
+//    }
 
     public String getDescription() {
         return description;
@@ -101,5 +103,13 @@ public class Establishment {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public Set<User> getChecked_in_users() {
+        return checked_in_users;
+    }
+
+    public void setChecked_in_users(Set<User> checked_in_users) {
+        this.checked_in_users = checked_in_users;
     }
 }
