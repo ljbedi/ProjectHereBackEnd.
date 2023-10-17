@@ -22,10 +22,14 @@ public class UserController {
     return userRepository.findAll();
     }
 
+    @GetMapping(value ="/users/{id}")
+    public Optional<User> getUserById(@PathVariable Long id) {return userRepository.findById(id);}
+
     @PostMapping(value = "/users")
     public User createNewUser(@RequestBody User user) {
         return userRepository.save(user);
     }
+
 
     @GetMapping(value = "/users/{id}/checked_ins")
     public List<Establishment> getAllCheckedIns(@PathVariable Long id) { return userRepository.findAllCheckedInsById(id); }

@@ -36,6 +36,10 @@ public class User {
     )
     Set<Establishment> checked_ins;
 
+    @JsonIgnoreProperties({"user", "establishment"})
+    @OneToMany(mappedBy = "user")
+    Set<Review> reviews;
+
     public User() {
 
     }
@@ -108,5 +112,13 @@ public class User {
 
     public void addCheckIn(Establishment establishment) {
         this.checked_ins.add(establishment);
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 }

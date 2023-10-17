@@ -31,9 +31,12 @@ public class Establishment {
     private Double latitude;
 
     @JsonIgnoreProperties("checked_ins")
-
     @ManyToMany(mappedBy = "checked_ins")
     Set<User> checked_in_users;
+
+    @JsonIgnoreProperties({"establishment", "user"})
+    @OneToMany(mappedBy = "establishment")
+    Set<Review> reviews;
 
     public Establishment(){
 
@@ -111,5 +114,13 @@ public class Establishment {
 
     public void setChecked_in_users(Set<User> checked_in_users) {
         this.checked_in_users = checked_in_users;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 }

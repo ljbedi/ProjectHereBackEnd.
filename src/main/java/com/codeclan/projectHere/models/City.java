@@ -14,16 +14,16 @@ public class City {
     @Column(name="name")
     private String name;
 
-    @Column(name="description")
+    @Column(name="description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(name="history")
+    @Column(name="history", columnDefinition = "TEXT")
     private String history;
 
-    @Column(name="wellbeing")
+    @Column(name="wellbeing", columnDefinition = "TEXT")
     private String wellbeing;
 
-    @Column(name="toDo")
+    @Column(name="toDo", columnDefinition = "TEXT")
     private String toDo;
 
     @Column(name="latitude")
