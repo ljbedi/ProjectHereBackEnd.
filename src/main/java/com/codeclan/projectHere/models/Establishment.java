@@ -18,17 +18,17 @@ public class Establishment {
     @Column(name="name")
     private String name;
 
-    @Column(name="description")
+    @Column(name="description", columnDefinition = "TEXT")
     private String description;
 
-//    @Column(name="categories")
-//    private List<Category> categories;
-
-    @Column(name="longitude")
-    private Double longitude;
+    @Column(name="category")
+    private String category;
 
     @Column(name="latitude")
     private Double latitude;
+
+    @Column(name="longitude")
+    private Double longitude;
 
     @JsonIgnoreProperties("checked_ins")
     @ManyToMany(mappedBy = "checked_ins")
@@ -42,14 +42,12 @@ public class Establishment {
 
     }
 
-    public Establishment(String name, String description, Double longitude, Double latitude) {
+    public Establishment(String name, String description, String category, Double latitude, Double longitude) {
         this.name = name;
         this.description = description;
-        this.longitude = longitude;
+        this.category = category;
         this.latitude = latitude;
-//        this.checked_in_users = new ArrayList<>();
-//        this.categories = new ArrayList<>();
-//        this.reviews = new ArrayList<>();
+        this.longitude = longitude;
     }
 
     public Long getId() {
@@ -68,28 +66,20 @@ public class Establishment {
         this.name = name;
     }
 
-//    public List<Category> getCategories() {
-//        return categories;
-//    }
-//
-//    public void setCategories(List<Category> categories) {
-//        this.categories = categories;
-//    }
-
-//    public List<Review> getReviews() {
-//        return reviews;
-//    }
-//
-//    public void setReviews(List<Review> reviews) {
-//        this.reviews = reviews;
-//    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Double getLongitude() {
